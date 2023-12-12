@@ -33,9 +33,9 @@ def create_applicationPrivate_app(root,font):
 
 #
 
-   lbl_upd_applicationPrivate = Label(applicationPrivate_app, text='Обновить applicationPrivate по id', font=font)
+   lbl_upd_applicationPrivate = Label(applicationPrivate_app, text='Обновить application по id', font=font)
 
-   lbl_upd_applicationPrivate_id = Label(applicationPrivate_app, text='Введите applicationPrivate_id', font=font)
+   lbl_upd_application_id = Label(applicationPrivate_app, text='Введите application_id', font=font)
    entry_upd_applicationPrivate = Entry(applicationPrivate_app, font=font, textvariable=upd_id)
 
    lbl_upd_applicationPrivate_treatmentStage = Label(applicationPrivate_app, text='Введите treatmentStage applicationPrivate', font=font)
@@ -61,7 +61,7 @@ def create_applicationPrivate_app(root,font):
    btn_upd_applicationPrivate = Button(applicationPrivate_app, text='Обновить', font=font, command=lambda: fun_upd_applicationPrivate(entry_upd_applicationPrivate.get(),entry_upd_applicationPrivate_treatmentStage_data.get(),entry_upd_applicationPrivate_descriptionTreatment_data.get(),entry_upd_applicationPrivate_veterinarian_id_data.get(),entry_upd_applicationPrivate_applicationStatus_data.get(),entry_upd_applicationPrivate_applicationExecutor_data.get(),entry_upd_applicationPrivate_comments_data.get()))
    lbl_upd_applicationPrivate.grid(row=3, column=1)
 
-   lbl_upd_applicationPrivate_id.grid(row=4, column=0)
+   lbl_upd_application_id.grid(row=4, column=0)
    entry_upd_applicationPrivate.grid(row=4, column=2)
 
    lbl_upd_applicationPrivate_treatmentStage.grid(row=5, column=0)
@@ -99,13 +99,13 @@ def get_response(s):
 
 #
 
-def fun_get_applicationPrivate(applicationPrivate_id):
-   r = requests.get(f'http://127.0.0.1:8000/applicationPrivate/{applicationPrivate_id}')
+def fun_get_applicationPrivate(application_id):
+   r = requests.get(f'http://127.0.0.1:8000/applicationPrivate/{application_id}')
    answer = r.json()
    get_response(answer)
 
-def fun_upd_applicationPrivate(applicationPrivate_id,treatmentStage,descriptionTreatment,veterinarian_id,applicationStatus,applicationExecutor,comments):
+def fun_upd_applicationPrivate(application_id,treatmentStage,descriptionTreatment,veterinarian_id,applicationStatus,applicationExecutor,comments):
    data = f'{{ "treatmentStage": "{treatmentStage}", "descriptionTreatment": "{descriptionTreatment}", "veterinarian_id": "{veterinarian_id}", "applicationStatus": "{applicationStatus}", "applicationExecutor": "{applicationExecutor}", "comments": "{comments}" }}'
-   r = requests.put(f'http://127.0.0.1:8000/applicationPrivate/{applicationPrivate_id}',data=data)
+   r = requests.put(f'http://127.0.0.1:8000/applicationPrivate/{application_id}',data=data)
    answer = r.json()
    get_response(answer)

@@ -108,10 +108,10 @@ def create_application_app(root,font):
 
    lbl_upd_application_treatmentStatus = Label(application_app, text='Введите treatmentStatus application', font=font)
    entry_upd_application_treatmentStatus_data = Entry(application_app, font=font, textvariable=upd_application_treatmentStatus)
-
 #
 
-   btn_upd_application = Button(application_app, text='Обновить', font=font, command=lambda: fun_upd_application(entry_new_application_dataAt_data.get(),entry_new_application_animal_data.get(),entry_new_application_treatmentType_data.get(),entry_new_application_descriptionDisease_data.get(),entry_new_application_customerData_data.get(),entry_new_application_treatmentStatus_data.get()))
+   btn_upd_application = Button(application_app, text='Обновить', font=font, command=lambda: fun_upd_application(entry_upd_application.get(),entry_upd_application_dataAt_data.get(),entry_upd_application_animal_data.get(),entry_upd_application_treatmentType_data.get(),entry_upd_application_descriptionDisease_data.get(),entry_upd_application_customerData_data.get(),entry_upd_application_treatmentStatus_data.get()))
+
    lbl_upd_application.grid(row=11, column=1)
 
    lbl_upd_application_id.grid(row=12, column=0)

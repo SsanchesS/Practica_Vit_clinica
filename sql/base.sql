@@ -1,17 +1,18 @@
 CREATE TABLE application(
   application_id INTEGER PRIMARY KEY,
-  applicationStatus TEXT,
-  dataAt DATE,
+  dataAt TEXT,
   animal TEXT,
   treatmentType TEXT,
   descriptionDisease TEXT,
   customerData TEXT,
-  treatmentStatus TEXT,
-  veterinarian_id INTEGER,
-  treatmentStage TEXT,
-  descriptionTreatment TEXT,
-  comments TEXT,
-  applicationExecutor_id INTEGER,
+  treatmentStatus TEXT
+
+  treatmentStage TEXT DEFAULT NULL,
+  descriptionTreatment TEXT DEFAULT NULL,
+  veterinarian_id INTEGER DEFAULT NULL,
+  applicationStatus TEXT DEFAULT NULL,
+  applicationExecutor_id INTEGER DEFAULT NULL,
+  comments TEXT DEFAULT NULL,
   FOREIGN KEY (veterinarian_id) REFERENCES veterinarian (veterinarian_id),
   FOREIGN KEY (applicationExecutor_id) REFERENCES departmentPerformanceStatisticsM (applicationExecutor_id)
 );

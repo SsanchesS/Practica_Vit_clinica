@@ -18,7 +18,7 @@ def new_application(application: applicationM) -> int:
 # 
 def upd_application(application_id, application: applicationM) -> int:
     upd_id = base_worker.insert_data(f"""
-        UPDATE applications
+        UPDATE application
         SET dataAt = ?, animal = ?, treatmentType = ?, descriptionDisease = ?, customerData = ?, treatmentStatus = ?
         WHERE application_id = {application_id} 
         RETURNING application_id;
@@ -27,7 +27,7 @@ def upd_application(application_id, application: applicationM) -> int:
 
 # не тестил
 def upd_private_application(application_id, application: applicationM) -> int:
-
+    print("Prinyal")
     set_clauses = []
     values = []
 
@@ -62,7 +62,7 @@ def upd_private_application(application_id, application: applicationM) -> int:
     set_clause = set_clause.rstrip(',')  # Убираем последнюю запятую
 
     upd_id = base_worker.insert_data(f"""
-        UPDATE applications
+        UPDATE application
         SET {set_clause}
         WHERE application_id = {application_id} 
         RETURNING application_id;

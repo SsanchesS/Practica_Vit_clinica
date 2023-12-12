@@ -30,12 +30,12 @@ def update_application(application_id: int, application: applicationM):
         return {"code": 404, 'message': f"application with id {application_id} not found"}
     return {"code": 201, "Update application": upd_id}
 
-@application_router.put('/{application_id}')
-def update_private_application(application_id: int, application: applicationM):
-    upd_id = resolvers.application.upd_private_application(application_id, application)
-    if upd_id is None:
-        return {"code": 404, 'message': f"application with id {application_id} not found"}
-    return {"code": 201, "Update application": upd_id}
+# @application_router.put('/{application_id}')
+# def update_private_application(application_id: int, application: applicationM):
+#     upd_id = resolvers.application.upd_private_application(application_id, application)
+#     if upd_id is None:
+#         return {"code": 404, 'message': f"application with id {application_id} not found"}
+#     return {"code": 201, "Update application": upd_id}
 
 @application_router.delete('/{application_id}')
 def delete_application(application_id: int):

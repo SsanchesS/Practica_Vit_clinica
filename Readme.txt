@@ -7,7 +7,3 @@ pip install requests
 
 Для запуска GUI:
 Открыть src/client и запустить mainwindow.py
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-aplication and aplicationPrivate (заявки) пока не работают
