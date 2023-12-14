@@ -25,48 +25,13 @@ def upd_application(application_id, application: applicationM) -> int:
     """, (application.dataAt, application.animal, application.treatmentType, application.descriptionDisease, application.customerData, application.treatmentStatus))
     return upd_id
 
-# не тестил
 def upd_private_application(application_id, application: applicationM) -> int:
-    print("Prinyal")
-    set_clauses = []
-    values = []
-
-    def f2(obj):
-        return obj + '=?,'
-    
-    if(application.treatmentStage):
-        set_clauses.append('treatment_stage')
-        values.append(application.treatmentStage)
-
-    if(application.descriptionTreatment):
-        set_clauses.append('description_treatment')
-        values.append(application.descriptionTreatment)
-
-    if(application.veterinarian_id):
-        set_clauses.append('veterinarian_id')
-        values.append(application.veterinarian_id)
-
-    if(application.applicationStatus):
-        set_clauses.append('application_status')
-        values.append(application.applicationStatus)
-
-    if(application.applicationExecutor):
-        set_clauses.append('application_executor')
-        values.append(application.applicationExecutor)
-
-    if(application.comments):
-        set_clauses.append('comments')
-        values.append(application.comments)
-
-    set_clause = ', '.join(map(f2, set_clauses))
-    set_clause = set_clause.rstrip(',')  # Убираем последнюю запятую
-
     upd_id = base_worker.insert_data(f"""
         UPDATE application
-        SET {set_clause}
+        SET treatmentStage=?,descriptionTreatment=?,veterinarian_id=?,applicationStatus=?,applicationExecutor_id=?,comments=?
         WHERE application_id = {application_id} 
         RETURNING application_id;
-    """, (values))
+    """, (application.treatmentStage,application.descriptionTreatment,application.veterinarian_id,application.applicationStatus,application.applicationExecutor_id,application.comments))
     return upd_id
 
 def del_application(application_id) -> int:

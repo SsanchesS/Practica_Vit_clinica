@@ -1,7 +1,7 @@
 import requests
 from tkinter import *
 
-def create_user_app(root,font,user_id_props):
+def create_user_app(root,font,user_props):
    user_app = Toplevel(root)
    user_app.title("Работа с user")  
    user_app.geometry('1400x700')
@@ -20,8 +20,8 @@ def create_user_app(root,font,user_id_props):
    new_user_password = StringVar()
    upd_user_password = StringVar()
 
-   new_user_role_id = StringVar()
-   upd_user_role_id = StringVar()
+   new_role_id_id = StringVar()
+   upd_role_id_id = StringVar()
 
 #
 
@@ -45,12 +45,12 @@ def create_user_app(root,font,user_id_props):
    lbl_new_user_password = Label(user_app, text='Введите password нового user', font=font)
    entry_new_user_password_data = Entry(user_app, font=font, textvariable=new_user_password)
 
-   lbl_new_user_role_id = Label(user_app, text='Введите role_id нового user', font=font)
-   entry_new_user_role_id_data = Entry(user_app, font=font, textvariable=new_user_role_id)
+   lbl_new_role_id_id = Label(user_app, text='Введите role_id нового user: 1 - admin 2 - user', font=font)
+   entry_new_role_id_id_data = Entry(user_app, font=font, textvariable=new_role_id_id)
 
 #
 
-   btn_new_user = Button(user_app, text='Создать', font=font, command=lambda: fun_new_user(entry_new_user_name_data.get(),entry_new_user_login_data.get(),entry_new_user_password_data.get(),entry_new_user_role_id_data.get()))
+   btn_new_user = Button(user_app, text='Создать', font=font, command=lambda: fun_new_user(entry_new_user_name_data.get(),entry_new_user_login_data.get(),entry_new_user_password_data.get(),entry_new_role_id_id_data.get()))
    lbl_new_user.grid(row=3, column=1)
 
    lbl_new_user_name.grid(row=4, column=0)
@@ -62,8 +62,8 @@ def create_user_app(root,font,user_id_props):
    lbl_new_user_password.grid(row=6, column=0)
    entry_new_user_password_data.grid(row=6, column=2)
 
-   lbl_new_user_role_id.grid(row=7, column=0)
-   entry_new_user_role_id_data.grid(row=7, column=2)
+   lbl_new_role_id_id.grid(row=7, column=0)
+   entry_new_role_id_id_data.grid(row=7, column=2)
 
    btn_new_user.grid(row=8, column=1)
 
@@ -83,12 +83,12 @@ def create_user_app(root,font,user_id_props):
    lbl_upd_user_password = Label(user_app, text='Введите password user', font=font)
    entry_upd_user_password_data = Entry(user_app, font=font, textvariable=upd_user_password)
 
-   lbl_upd_user_role_id = Label(user_app, text='Введите role_id user', font=font)
-   entry_upd_user_role_id_data = Entry(user_app, font=font, textvariable=upd_user_role_id)
+   lbl_upd_role_id_id = Label(user_app, text='Введите role_id user: 1 - admin 2 - user', font=font)
+   entry_upd_role_id_id_data = Entry(user_app, font=font, textvariable=upd_role_id_id)
 
 #
 
-   btn_upd_user = Button(user_app, text='Обновить', font=font, command=lambda: fun_upd_user(entry_upd_user.get(),entry_upd_user_name_data.get(),entry_upd_user_login_data.get(),entry_upd_user_password_data.get(),entry_upd_user_role_id_data.get()))
+   btn_upd_user = Button(user_app, text='Обновить', font=font, command=lambda: fun_upd_user(entry_upd_user.get(),entry_upd_user_name_data.get(),entry_upd_user_login_data.get(),entry_upd_user_password_data.get(),entry_upd_role_id_id_data.get()))
    lbl_upd_user.grid(row=9, column=1)
 
    lbl_upd_user_id.grid(row=10, column=0)
@@ -103,8 +103,8 @@ def create_user_app(root,font,user_id_props):
    lbl_upd_user_password.grid(row=13, column=0)
    entry_upd_user_password_data.grid(row=13, column=2)
 
-   lbl_upd_user_role_id.grid(row=14, column=0)
-   entry_upd_user_role_id_data.grid(row=14, column=2)
+   lbl_upd_role_id_id.grid(row=14, column=0)
+   entry_upd_role_id_id_data.grid(row=14, column=2)
 
    btn_upd_user.grid(row=15, column=1)
 
@@ -119,7 +119,7 @@ def create_user_app(root,font,user_id_props):
    btn_del_user.grid(row=17, column=1)
 
    global props
-   props = user_id_props
+   props = user_props
 #
    global lb2_response
    lb1_response = Label(user_app, text='Полученный ответ', font=font)
@@ -142,21 +142,37 @@ def fun_get_user(user_id):
 
 def fun_new_user(name,login,password,role_id):
    data = f'{{ "name": "{name}", "login": "{login}", "password": "{password}", "role_id": "{role_id}"}}'
-   r = requests.post(f'http://127.0.0.1:8000/user/',data=data)
-   answer = r.json()
-   get_response(answer)
+   if(props['role_id'] == 1):
+      r = requests.post(f'http://127.0.0.1:8000/user/',data=data)
+      answer = r.json()
+      get_response(answer)
+   else:
+      data = f'{{ "name": "{name}", "login": "{login}", "password": "{password}", "role_id": "{2}"}}'
+      r = requests.post(f'http://127.0.0.1:8000/user/',data=data)
+      answer = r.json()
+      get_response('Добавлен user с role_id user')
 
 def fun_upd_user(user_id,name,login,password,role_id):
    data = f'{{ "name": "{name}", "login": "{login}", "password": "{password}", "role_id": "{role_id}" }}'
-   r = requests.put(f'http://127.0.0.1:8000/user/{user_id}',data=data)
-   answer = r.json()
-   get_response(answer)
+   if(props['role_id'] == 1):
+      r = requests.put(f'http://127.0.0.1:8000/user/{user_id}',data=data)
+      answer = r.json()
+      get_response(answer)
+   else:
+      data = f'{{ "name": "{name}", "login": "{login}", "password": "{password}", "role_id": "{2}"}}'
+      r = requests.post(f'http://127.0.0.1:8000/user/',data=data)
+      answer = r.json()
+      get_response('Обновлен user с role_id user')
 
 def fun_del_user(user_id):
    user_id = int(user_id)
-   if (user_id==props):
-      lb2_response.config(text='Вы не можете удалить себя')
+   if (user_id==props['user_id']):
+      get_response('Вы не можете удалить себя')
    else:
-      r = requests.delete(f'http://127.0.0.1:8000/user/{user_id}')
-      answer = r.json()
-      get_response(answer)
+      if(props['role_id'] == 1):
+         r = requests.delete(f'http://127.0.0.1:8000/user/{user_id}')
+         answer = r.json()
+         get_response(answer)
+      else:
+         get_response('Не достаточно прав')
+   

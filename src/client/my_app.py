@@ -6,7 +6,7 @@ from  api.departmentPerformanceStatistics_api import create_dPS_app
 from  api.user_api import create_user_app
 
 
-def create_app(root,font,user_id_props):
+def create_app(root,font,user_props):
   app = Toplevel(root)
   app.title("Выберите запрос")  
   app.geometry('700x400')
@@ -29,23 +29,24 @@ def create_app(root,font,user_id_props):
 
   def f_user_app():
     app.withdraw()
-    create_user_app(root,font,user_id_props)
+    create_user_app(root,font,user_props)
 
   btn_app_albums = Button(app, text='application', font=font, command=f_application_app)
 
   btn_app_albums.grid(row=1, column=0)
 
-  btn_app_albums = Button(app, text='applicationPrivate', font=font, command=f_applicationPrivate_app)
+  if(user_props["role_id"]==1):
+    btn_app_albums = Button(app, text='applicationPrivate', font=font, command=f_applicationPrivate_app)
 
-  btn_app_albums.grid(row=1, column=1)
+    btn_app_albums.grid(row=1, column=1)
 
-  btn_app_artists = Button(app, text='veterinarian', font=font, command=f_veterinarian_app)
+    btn_app_artists = Button(app, text='veterinarian', font=font, command=f_veterinarian_app)
 
-  btn_app_artists.grid(row=2, column=0)
+    btn_app_artists.grid(row=2, column=0)
 
-  btn_app_songs = Button(app, text='departmentPerformanceStatistics', font=font, command=f_dPS_app)
+    btn_app_songs = Button(app, text='departmentPerformanceStatistics', font=font, command=f_dPS_app)
 
-  btn_app_songs.grid(row=2, column=1)
+    btn_app_songs.grid(row=2, column=1)
 
   btn_app_customer = Button(app, text='user', font=font, command=f_user_app)
 

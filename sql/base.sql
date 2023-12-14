@@ -1,11 +1,11 @@
 CREATE TABLE application(
   application_id INTEGER PRIMARY KEY,
-  dataAt TEXT,
-  animal TEXT,
-  treatmentType TEXT,
-  descriptionDisease TEXT,
-  customerData TEXT,
-  treatmentStatus TEXT
+  dataAt TEXT DEFAULT NULL,
+  animal TEXT DEFAULT NULL,
+  treatmentType TEXT DEFAULT NULL,
+  descriptionDisease TEXT DEFAULT NULL,
+  customerData TEXT DEFAULT NULL,
+  treatmentStatus TEXT DEFAULT NULL,
 
   treatmentStage TEXT DEFAULT NULL,
   descriptionTreatment TEXT DEFAULT NULL,

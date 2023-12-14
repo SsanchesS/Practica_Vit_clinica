@@ -4,12 +4,12 @@ from datetime import date
 
 class applicationM(BaseModel): # Заявка
     # application_id: int
-    dataAt: str  = None
-    animal: str  = None
-    treatmentType: str  = None # Тип лечения
-    descriptionDisease : str  = None # Описание заболевания
-    customerData: str  = None
-    treatmentStatus : str  = None # Статус лечения
+    dataAt: Optional[str] = None
+    animal: Optional[str] = None
+    treatmentType: Optional[str] = None # Тип лечения
+    descriptionDisease : Optional[str] = None # Описание заболевания
+    customerData: Optional[str] = None
+    treatmentStatus : Optional[str] = None # Статус лечения
     
     # private
 
@@ -19,7 +19,7 @@ class applicationM(BaseModel): # Заявка
 
     applicationStatus : Optional[str] = None
 
-    applicationExecutor : Optional[int] = None # исполнитель заявки
+    applicationExecutor_id : Optional[int] = None # исполнитель заявки
     comments: Optional[str] = None
 
 class veterinarianM(BaseModel):

@@ -23,15 +23,15 @@ def check_login(login: str, password: str):
         print(f"Server error:{message}")
         return None
     else:
-        return answer["user_id"][0]
+        return {'user_id':answer['user_id'],'role_id':answer["role_id"]}
 
 def open_login():
-    user_id = check_login(login=login.get(),password=password.get())
-    if user_id:
+    user = check_login(login=login.get(),password=password.get())
+    if user['user_id']:
         print("Login ok")
-        print(f'user_id: {user_id}')
+        print(f'user: {user}')
         root.withdraw()
-        create_app(root,font,user_id_props=user_id)
+        create_app(root,font,user_props=user)
     else:
         mesbox.showerror(title="Wrong login",message="Логин или пароль не верны")
 

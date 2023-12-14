@@ -17,7 +17,7 @@ def create_applicationPrivate_app(root,font):
 
    upd_applicationPrivate_applicationStatus = StringVar()
 
-   upd_applicationPrivate_applicationExecutor = StringVar()
+   upd_applicationPrivate_applicationExecutor_id = StringVar()
 
    upd_applicationPrivate_comments = StringVar()
 
@@ -50,15 +50,15 @@ def create_applicationPrivate_app(root,font):
    lbl_upd_applicationPrivate_applicationStatus = Label(applicationPrivate_app, text='Введите applicationStatus applicationPrivate', font=font)
    entry_upd_applicationPrivate_applicationStatus_data = Entry(applicationPrivate_app, font=font, textvariable=upd_applicationPrivate_applicationStatus)
 
-   lbl_upd_applicationPrivate_applicationExecutor = Label(applicationPrivate_app, text='Введите applicationPrivate_applicationExecutor', font=font)
-   entry_upd_applicationPrivate_applicationExecutor_data = Entry(applicationPrivate_app, font=font, textvariable=upd_applicationPrivate_applicationExecutor)
+   lbl_upd_applicationPrivate_applicationExecutor_id = Label(applicationPrivate_app, text='Введите applicationPrivate_applicationExecutor_id', font=font)
+   entry_upd_applicationPrivate_applicationExecutor_id_data = Entry(applicationPrivate_app, font=font, textvariable=upd_applicationPrivate_applicationExecutor_id)
 
    lbl_upd_applicationPrivate_comments = Label(applicationPrivate_app, text='Введите applicationPrivate_comments', font=font)
    entry_upd_applicationPrivate_comments_data = Entry(applicationPrivate_app, font=font, textvariable=upd_applicationPrivate_comments)
 
 #
 
-   btn_upd_applicationPrivate = Button(applicationPrivate_app, text='Обновить', font=font, command=lambda: fun_upd_applicationPrivate(entry_upd_applicationPrivate.get(),entry_upd_applicationPrivate_treatmentStage_data.get(),entry_upd_applicationPrivate_descriptionTreatment_data.get(),entry_upd_applicationPrivate_veterinarian_id_data.get(),entry_upd_applicationPrivate_applicationStatus_data.get(),entry_upd_applicationPrivate_applicationExecutor_data.get(),entry_upd_applicationPrivate_comments_data.get()))
+   btn_upd_applicationPrivate = Button(applicationPrivate_app, text='Обновить', font=font, command=lambda: fun_upd_applicationPrivate(entry_upd_applicationPrivate.get(),entry_upd_applicationPrivate_treatmentStage_data.get(),entry_upd_applicationPrivate_descriptionTreatment_data.get(),entry_upd_applicationPrivate_veterinarian_id_data.get(),entry_upd_applicationPrivate_applicationStatus_data.get(),entry_upd_applicationPrivate_applicationExecutor_id_data.get(),entry_upd_applicationPrivate_comments_data.get()))
    lbl_upd_applicationPrivate.grid(row=3, column=1)
 
    lbl_upd_application_id.grid(row=4, column=0)
@@ -76,8 +76,8 @@ def create_applicationPrivate_app(root,font):
    lbl_upd_applicationPrivate_applicationStatus.grid(row=8, column=0)
    entry_upd_applicationPrivate_applicationStatus_data.grid(row=8, column=2)
 
-   lbl_upd_applicationPrivate_applicationExecutor.grid(row=9, column=0)
-   entry_upd_applicationPrivate_applicationExecutor_data.grid(row=9, column=2)
+   lbl_upd_applicationPrivate_applicationExecutor_id.grid(row=9, column=0)
+   entry_upd_applicationPrivate_applicationExecutor_id_data.grid(row=9, column=2)
 
    lbl_upd_applicationPrivate_comments.grid(row=10, column=0)
    entry_upd_applicationPrivate_comments_data.grid(row=10, column=2)
@@ -104,8 +104,8 @@ def fun_get_applicationPrivate(application_id):
    answer = r.json()
    get_response(answer)
 
-def fun_upd_applicationPrivate(application_id,treatmentStage,descriptionTreatment,veterinarian_id,applicationStatus,applicationExecutor,comments):
-   data = f'{{ "treatmentStage": "{treatmentStage}", "descriptionTreatment": "{descriptionTreatment}", "veterinarian_id": "{veterinarian_id}", "applicationStatus": "{applicationStatus}", "applicationExecutor": "{applicationExecutor}", "comments": "{comments}" }}'
+def fun_upd_applicationPrivate(application_id,treatmentStage,descriptionTreatment,veterinarian_id,applicationStatus,applicationExecutor_id,comments):
+   data = f'{{ "treatmentStage": "{treatmentStage}", "descriptionTreatment": "{descriptionTreatment}", "veterinarian_id": "{veterinarian_id}", "applicationStatus": "{applicationStatus}", "applicationExecutor_id": "{applicationExecutor_id}", "comments": "{comments}" }}'
    r = requests.put(f'http://127.0.0.1:8000/applicationPrivate/{application_id}',data=data)
    answer = r.json()
    get_response(answer)
