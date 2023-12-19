@@ -3,7 +3,7 @@ from tkinter import *
 
 def create_veterinarian_app(root,font):
    veterinarian_app = Toplevel(root)
-   veterinarian_app.title("Работа с veterinarian")  
+   veterinarian_app.title("Работа с Ветеринарами")  
    veterinarian_app.geometry('1400x700')
 
 
@@ -17,7 +17,7 @@ def create_veterinarian_app(root,font):
 
 #
 
-   lbl_get_veterinarian = Label(veterinarian_app, text="Показать veterinarian по id", font=font)
+   lbl_get_veterinarian = Label(veterinarian_app, text="Показать ветеринара по id", font=font)
    entry_get_veterinarian = Entry(veterinarian_app, font=font, textvariable=get_id)
    btn_get_veterinarian = Button(veterinarian_app, text='Получить', font=font, command=lambda: fun_get_veterinarian(entry_get_veterinarian.get()))
    lbl_get_veterinarian.grid(row=1, column=1)
@@ -26,9 +26,9 @@ def create_veterinarian_app(root,font):
 
 #
 
-   lbl_new_veterinarian = Label(veterinarian_app, text='Добавить нового veterinarian', font=font)
+   lbl_new_veterinarian = Label(veterinarian_app, text='Добавить нового ветеринара', font=font)
 
-   lbl_new_veterinarian_name = Label(veterinarian_app, text='Введите name нового veterinarian', font=font)
+   lbl_new_veterinarian_name = Label(veterinarian_app, text='Введите имя нового ветеринара', font=font)
    entry_new_veterinarian_name_data = Entry(veterinarian_app, font=font, textvariable=new_veterinarian_name)
 
 #
@@ -44,12 +44,12 @@ def create_veterinarian_app(root,font):
 
 #
 
-   lbl_upd_veterinarian = Label(veterinarian_app, text='Обновить veterinarian по id', font=font)
+   lbl_upd_veterinarian = Label(veterinarian_app, text='Обновить ветеринара по id', font=font)
 
-   lbl_upd_veterinarian_id = Label(veterinarian_app, text='Введите veterinarian_id', font=font)
+   lbl_upd_veterinarian_id = Label(veterinarian_app, text='Введите id ветеринара', font=font)
    entry_upd_veterinarian = Entry(veterinarian_app, font=font, textvariable=upd_id)
 
-   lbl_upd_veterinarian_name = Label(veterinarian_app, text='Введите name veterinarian', font=font)
+   lbl_upd_veterinarian_name = Label(veterinarian_app, text='Введите имя ветеринара', font=font)
    entry_upd_veterinarian_name_data = Entry(veterinarian_app, font=font, textvariable=upd_veterinarian_name)
 
 
@@ -70,7 +70,7 @@ def create_veterinarian_app(root,font):
 
 #
 
-   lbl_del_veterinarian = Label(veterinarian_app, text='Удалить veterinarian по id', font=font)
+   lbl_del_veterinarian = Label(veterinarian_app, text='Удалить ветеринара по id', font=font)
    entry_del_veterinarian = Entry(veterinarian_app, font=font, textvariable=del_id)
    btn_del_veterinarian = Button(veterinarian_app, text='Удалить', font=font, command=lambda: fun_del_veterinarian(entry_del_veterinarian.get()))
 

@@ -3,7 +3,7 @@ from tkinter import *
 
 def create_applicationPrivate_app(root,font):
    applicationPrivate_app = Toplevel(root)
-   applicationPrivate_app.title("Работа с applicationPrivate")  
+   applicationPrivate_app.title("Работа с Расширенной заявкой")  
    applicationPrivate_app.geometry('1400x700')
 
    get_id = StringVar()
@@ -24,7 +24,7 @@ def create_applicationPrivate_app(root,font):
 
 #
 
-   lbl_get_applicationPrivate = Label(applicationPrivate_app, text="Показать application по id", font=font)
+   lbl_get_applicationPrivate = Label(applicationPrivate_app, text="Показать заявку по id", font=font)
    entry_get_applicationPrivate = Entry(applicationPrivate_app, font=font, textvariable=get_id)
    btn_get_applicationPrivate = Button(applicationPrivate_app, text='Получить', font=font, command=lambda: fun_get_applicationPrivate(entry_get_applicationPrivate.get()))
    lbl_get_applicationPrivate.grid(row=1, column=1)
@@ -33,27 +33,27 @@ def create_applicationPrivate_app(root,font):
 
 #
 
-   lbl_upd_applicationPrivate = Label(applicationPrivate_app, text='Обновить application по id', font=font)
+   lbl_upd_applicationPrivate = Label(applicationPrivate_app, text='Обновить заявку по id', font=font)
 
-   lbl_upd_application_id = Label(applicationPrivate_app, text='Введите application_id', font=font)
+   lbl_upd_application_id = Label(applicationPrivate_app, text='Введите id заявки', font=font)
    entry_upd_applicationPrivate = Entry(applicationPrivate_app, font=font, textvariable=upd_id)
 
-   lbl_upd_applicationPrivate_treatmentStage = Label(applicationPrivate_app, text='Введите treatmentStage applicationPrivate', font=font)
+   lbl_upd_applicationPrivate_treatmentStage = Label(applicationPrivate_app, text='Введите стадию лечения', font=font)
    entry_upd_applicationPrivate_treatmentStage_data = Entry(applicationPrivate_app, font=font, textvariable=upd_applicationPrivate_treatmentStage)
 
-   lbl_upd_applicationPrivate_descriptionTreatment = Label(applicationPrivate_app, text='Введите descriptionTreatment applicationPrivate', font=font)
+   lbl_upd_applicationPrivate_descriptionTreatment = Label(applicationPrivate_app, text='Введите описание лечения', font=font)
    entry_upd_applicationPrivate_descriptionTreatment_data = Entry(applicationPrivate_app, font=font, textvariable=upd_applicationPrivate_descriptionTreatment)
 
-   lbl_upd_applicationPrivate_veterinarian_id = Label(applicationPrivate_app, text='Введите veterinarian_id applicationPrivate', font=font)
+   lbl_upd_applicationPrivate_veterinarian_id = Label(applicationPrivate_app, text='Введите id ветеринара', font=font)
    entry_upd_applicationPrivate_veterinarian_id_data = Entry(applicationPrivate_app, font=font, textvariable=upd_applicationPrivate_veterinarian_id)
 
-   lbl_upd_applicationPrivate_applicationStatus = Label(applicationPrivate_app, text='Введите applicationStatus applicationPrivate', font=font)
+   lbl_upd_applicationPrivate_applicationStatus = Label(applicationPrivate_app, text='Введите Статус', font=font)
    entry_upd_applicationPrivate_applicationStatus_data = Entry(applicationPrivate_app, font=font, textvariable=upd_applicationPrivate_applicationStatus)
 
-   lbl_upd_applicationPrivate_applicationExecutor_id = Label(applicationPrivate_app, text='Введите applicationPrivate_applicationExecutor_id', font=font)
+   lbl_upd_applicationPrivate_applicationExecutor_id = Label(applicationPrivate_app, text='Введите id исполнителя', font=font)
    entry_upd_applicationPrivate_applicationExecutor_id_data = Entry(applicationPrivate_app, font=font, textvariable=upd_applicationPrivate_applicationExecutor_id)
 
-   lbl_upd_applicationPrivate_comments = Label(applicationPrivate_app, text='Введите applicationPrivate_comments', font=font)
+   lbl_upd_applicationPrivate_comments = Label(applicationPrivate_app, text='Введите комментарий', font=font)
    entry_upd_applicationPrivate_comments_data = Entry(applicationPrivate_app, font=font, textvariable=upd_applicationPrivate_comments)
 
 #

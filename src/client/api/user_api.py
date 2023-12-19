@@ -3,7 +3,7 @@ from tkinter import *
 
 def create_user_app(root,font,user_props):
    user_app = Toplevel(root)
-   user_app.title("Работа с user")  
+   user_app.title("Работа с Пользователями")  
    user_app.geometry('1400x700')
 
 
@@ -25,7 +25,7 @@ def create_user_app(root,font,user_props):
 
 #
 
-   lbl_get_user = Label(user_app, text="Показать user по id", font=font)
+   lbl_get_user = Label(user_app, text="Показать пользователя по id", font=font)
    entry_get_user = Entry(user_app, font=font, textvariable=get_id)
    btn_get_user = Button(user_app, text='Получить', font=font, command=lambda: fun_get_user(entry_get_user.get()))
    lbl_get_user.grid(row=1, column=1)
@@ -34,18 +34,18 @@ def create_user_app(root,font,user_props):
 
 #
 
-   lbl_new_user = Label(user_app, text='Добавить нового user', font=font)
+   lbl_new_user = Label(user_app, text='Добавить нового пользователя', font=font)
 
-   lbl_new_user_name = Label(user_app, text='Введите name нового user', font=font)
+   lbl_new_user_name = Label(user_app, text='Введите имя нового пользователя', font=font)
    entry_new_user_name_data = Entry(user_app, font=font, textvariable=new_user_name)
 
-   lbl_new_user_login = Label(user_app, text='Введите login нового user', font=font)
+   lbl_new_user_login = Label(user_app, text='Введите login нового пользователя', font=font)
    entry_new_user_login_data = Entry(user_app, font=font, textvariable=new_user_login)
 
-   lbl_new_user_password = Label(user_app, text='Введите password нового user', font=font)
+   lbl_new_user_password = Label(user_app, text='Введите password нового пользователя', font=font)
    entry_new_user_password_data = Entry(user_app, font=font, textvariable=new_user_password)
 
-   lbl_new_role_id_id = Label(user_app, text='Введите role_id нового user: 1 - admin 2 - user', font=font)
+   lbl_new_role_id_id = Label(user_app, text='Введите id роли нового пользователя: 1 - admin 2 - user', font=font)
    entry_new_role_id_id_data = Entry(user_app, font=font, textvariable=new_role_id_id)
 
 #
@@ -69,21 +69,21 @@ def create_user_app(root,font,user_props):
 
 #
 
-   lbl_upd_user = Label(user_app, text='Обновить user по id', font=font)
+   lbl_upd_user = Label(user_app, text='Обновить пользователя по id', font=font)
 
-   lbl_upd_user_id = Label(user_app, text='Введите user_id', font=font)
+   lbl_upd_user_id = Label(user_app, text='Введите id пользователя', font=font)
    entry_upd_user = Entry(user_app, font=font, textvariable=upd_id)
 
-   lbl_upd_user_name = Label(user_app, text='Введите name user', font=font)
+   lbl_upd_user_name = Label(user_app, text='Введите имя пользователя', font=font)
    entry_upd_user_name_data = Entry(user_app, font=font, textvariable=upd_user_name)
 
-   lbl_upd_user_login = Label(user_app, text='Введите login user', font=font)
+   lbl_upd_user_login = Label(user_app, text='Введите login пользователя', font=font)
    entry_upd_user_login_data = Entry(user_app, font=font, textvariable=upd_user_login)
 
-   lbl_upd_user_password = Label(user_app, text='Введите password user', font=font)
+   lbl_upd_user_password = Label(user_app, text='Введите password пользователя', font=font)
    entry_upd_user_password_data = Entry(user_app, font=font, textvariable=upd_user_password)
 
-   lbl_upd_role_id_id = Label(user_app, text='Введите role_id user: 1 - admin 2 - user', font=font)
+   lbl_upd_role_id_id = Label(user_app, text='Введите id роли пользователя: 1 - admin 2 - user', font=font)
    entry_upd_role_id_id_data = Entry(user_app, font=font, textvariable=upd_role_id_id)
 
 #
@@ -110,7 +110,7 @@ def create_user_app(root,font,user_props):
 
 #
 
-   lbl_del_user = Label(user_app, text='Удалить user по id', font=font)
+   lbl_del_user = Label(user_app, text='Удалить пользователя по id', font=font)
    entry_del_user = Entry(user_app, font=font, textvariable=del_id)
    btn_del_user = Button(user_app, text='Удалить', font=font, command=lambda: fun_del_user(entry_del_user.get()))
 

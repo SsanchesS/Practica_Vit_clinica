@@ -3,7 +3,7 @@ from tkinter import *
 
 def create_dPS_app(root,font):
    dPS_app = Toplevel(root)
-   dPS_app.title("Работа с departmentPerformanceStatistic")  
+   dPS_app.title("Работа со статистикой работы отдела")  
    dPS_app.geometry('1400x700')
 
 
@@ -22,7 +22,7 @@ def create_dPS_app(root,font):
 
 #
 
-   lbl_get_dPS = Label(dPS_app, text="Показать dPS по id", font=font)
+   lbl_get_dPS = Label(dPS_app, text="Показать статистику работы отдела по id", font=font)
    entry_get_dPS = Entry(dPS_app, font=font, textvariable=get_id)
    btn_get_dPS = Button(dPS_app, text='Получить', font=font, command=lambda: fun_get_dPS(entry_get_dPS.get()))
    lbl_get_dPS.grid(row=1, column=1)
@@ -31,15 +31,15 @@ def create_dPS_app(root,font):
 
 #
 
-   lbl_new_dPS = Label(dPS_app, text='Добавить нового dPS', font=font)
+   lbl_new_dPS = Label(dPS_app, text='Добавить новую статистику работы отдела', font=font)
 
-   lbl_new_dPS_NumberCompletedApplications = Label(dPS_app, text='Введите NumberCompletedApplications нового dPS', font=font)
+   lbl_new_dPS_NumberCompletedApplications = Label(dPS_app, text='Введите Количество заполненных заявок', font=font)
    entry_new_dPS_NumberCompletedApplications_data = Entry(dPS_app, font=font, textvariable=new_dPS_NumberCompletedApplications)
 
-   lbl_new_dPS_AvgApplicationTime = Label(dPS_app, text='Введите AvgApplicationTime нового dPS', font=font)
+   lbl_new_dPS_AvgApplicationTime = Label(dPS_app, text='Введите Среднее время выполнение заявок', font=font)
    entry_new_dPS_AvgApplicationTime_data = Entry(dPS_app, font=font, textvariable=new_dPS_AvgApplicationTime)
 
-   lbl_new_dPS_statisticsTypesDiseases = Label(dPS_app, text='Введите statisticsTypesDiseases нового dPS', font=font)
+   lbl_new_dPS_statisticsTypesDiseases = Label(dPS_app, text='Введите Статистику типов заболеваний', font=font)
    entry_new_dPS_statisticsTypesDiseases_data = Entry(dPS_app, font=font, textvariable=new_dPS_statisticsTypesDiseases)
 
 
@@ -61,18 +61,18 @@ def create_dPS_app(root,font):
 
 #
 
-   lbl_upd_dPS = Label(dPS_app, text='Обновить dPS по id', font=font)
+   lbl_upd_dPS = Label(dPS_app, text='Обновить статистику работы отдела по id', font=font)
 
-   lbl_upd_dPS_id = Label(dPS_app, text='Введите dPS_id', font=font)
+   lbl_upd_dPS_id = Label(dPS_app, text='Введите id статистики работы отдела', font=font)
    entry_upd_dPS = Entry(dPS_app, font=font, textvariable=upd_id)
 
-   lbl_upd_dPS_NumberCompletedApplications = Label(dPS_app, text='Введите NumberCompletedApplications dPS', font=font)
+   lbl_upd_dPS_NumberCompletedApplications = Label(dPS_app, text='Введите Количество заполненных заявок', font=font)
    entry_upd_dPS_NumberCompletedApplications_data = Entry(dPS_app, font=font, textvariable=upd_dPS_NumberCompletedApplications)
 
-   lbl_upd_dPS_AvgApplicationTime = Label(dPS_app, text='Введите AvgApplicationTime dPS', font=font)
+   lbl_upd_dPS_AvgApplicationTime = Label(dPS_app, text='Введите Среднее время выполнение заявок', font=font)
    entry_upd_dPS_AvgApplicationTime_data = Entry(dPS_app, font=font, textvariable=upd_dPS_AvgApplicationTime)
 
-   lbl_upd_dPS_statisticsTypesDiseases = Label(dPS_app, text='Введите statisticsTypesDiseases dPS', font=font)
+   lbl_upd_dPS_statisticsTypesDiseases = Label(dPS_app, text='Введите Статистику типов заболеваний', font=font)
    entry_upd_dPS_statisticsTypesDiseases_data = Entry(dPS_app, font=font, textvariable=upd_dPS_statisticsTypesDiseases)
 
 
@@ -97,7 +97,7 @@ def create_dPS_app(root,font):
 
 #
 
-   lbl_del_dPS = Label(dPS_app, text='Удалить dPS по id', font=font)
+   lbl_del_dPS = Label(dPS_app, text='Удалить статистику работы отдела по id', font=font)
    entry_del_dPS = Entry(dPS_app, font=font, textvariable=del_id)
    btn_del_dPS = Button(dPS_app, text='Удалить', font=font, command=lambda: fun_del_dPS(entry_del_dPS.get()))
 

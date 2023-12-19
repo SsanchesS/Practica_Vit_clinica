@@ -31,23 +31,23 @@ def create_app(root,font,user_props):
     app.withdraw()
     create_user_app(root,font,user_props)
 
-  btn_app_albums = Button(app, text='application', font=font, command=f_application_app)
+  btn_app_albums = Button(app, text='Заявка', font=font, command=f_application_app)
 
   btn_app_albums.grid(row=1, column=0)
 
   if(user_props["role_id"]==1):
-    btn_app_albums = Button(app, text='applicationPrivate', font=font, command=f_applicationPrivate_app)
+    btn_app_albums = Button(app, text='Заявка расширенная', font=font, command=f_applicationPrivate_app)
 
     btn_app_albums.grid(row=1, column=1)
 
-    btn_app_artists = Button(app, text='veterinarian', font=font, command=f_veterinarian_app)
+    btn_app_artists = Button(app, text='Ветеринар', font=font, command=f_veterinarian_app)
 
     btn_app_artists.grid(row=2, column=0)
 
-    btn_app_songs = Button(app, text='departmentPerformanceStatistics', font=font, command=f_dPS_app)
+    btn_app_songs = Button(app, text='Статистика работы отдела', font=font, command=f_dPS_app)
 
     btn_app_songs.grid(row=2, column=1)
 
-  btn_app_customer = Button(app, text='user', font=font, command=f_user_app)
+  btn_app_customer = Button(app, text='Пользователи', font=font, command=f_user_app)
 
   btn_app_customer.grid(row=3, column=0)
