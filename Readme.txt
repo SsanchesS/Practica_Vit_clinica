@@ -14,13 +14,14 @@ pip install -r requirements.txt
 Открыть src/client и запустить mainwindow.py
 
 Update 1.1.0
-    + Проверки на даты,id
-    + сократил код для удобства 
-    + изменил дизайн
+    + Проверки на даты,id 
+    + сократил код для удобства - только для application
+    + изменил дизайн - только для application
     + Русифицировал
     + requirements.txt
+Update 1.2.0
+    + Сделал динамический запрос sql - только для application
 
-    - Сделать динамический запрос sql
     - кнопка назад
 
 
